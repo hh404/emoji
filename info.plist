@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.hans.alfred.emoji-search</string>
+	<key>category</key>
+	<string>Utilities</string>
+	<key>connections</key>
+	<dict>
+		<key>2C349CA1-F0DF-43FD-A52A-68C8E4D1449A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5B7AA373-C1CD-4DD5-A7BA-A5B15431B01B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Hans</string>
+	<key>description</key>
+	<string>Search Emoji by English, Chinese, or symbols and copy the selected result.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Emoji Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>emj</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Emoji…</string>
+				<key>script</key>
+				<string>workflow_dir=''
+for preferences_root in &quot;$HOME/Library/Mobile Documents/com~apple~CloudDocs/alfred/Alfred.alfredpreferences&quot; &quot;$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences&quot;; do
+  [[ -d &quot;$preferences_root/workflows&quot; ]] || continue
+  workflow_dir=$(/usr/bin/find -L &quot;$preferences_root/workflows&quot; -name info.plist -exec /usr/bin/grep -l &quot;com.hans.alfred.emoji-search&quot; {} \; | /usr/bin/sed -n '1{s|/info\.plist$||;p;}')
+  [[ -n &quot;$workflow_dir&quot; ]] &amp;&amp; break
+done
+[[ -n &quot;$workflow_dir&quot; ]] || exit 1
+exec &quot;$workflow_dir/run-search.sh&quot; &quot;{query}&quot;</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
+				<key>subtext</key>
+				<string>Search with English, Chinese, or symbols; Return copies the result</string>
+				<key>title</key>
+				<string>Emoji Search</string>
+				<key>type</key>
+				<integer>11</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2C349CA1-F0DF-43FD-A52A-68C8E4D1449A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>5B7AA373-C1CD-4DD5-A7BA-A5B15431B01B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Type emj, then a space, then an English word, a Chinese word, or a symbol. Press Return to copy the chosen Emoji.</string>
+	<key>uidata</key>
+	<dict>
+		<key>2C349CA1-F0DF-43FD-A52A-68C8E4D1449A</key>
+		<dict>
+			<key>xpos</key>
+			<real>80</real>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>5B7AA373-C1CD-4DD5-A7BA-A5B15431B01B</key>
+		<dict>
+			<key>xpos</key>
+			<real>420</real>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
